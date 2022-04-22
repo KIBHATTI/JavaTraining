@@ -1,0 +1,30 @@
+<p>statement works!</p>
+<table border="3" cellspacing="5" cellpadding="6">
+<!--    <TH>Account Number</TH><TH>From Date</TH><th>To Date</th>
+ <th>TransactionId</th><th>Txn details</th><th>Balance</th>-->
+    <tr>
+        <td>Account Number</td> <td><input type="number" [(ngModel)]="statement.accno"></td>
+        <td>From Date</td> <td><input type="date" [(ngModel)]="statement.trdate"></td>
+        <td>To Date</td>    <td><input type="date" [(ngModel)]="statement.trdate1"></td>
+        <td><button (click)="getstatement(statement.accno,statement.trdate,statement.trdate1)">View</button></td>
+        
+    </tr>
+
+    <tr aria-colindex="2" >
+        <table border="3" cellspacing="5" cellpadding="6">
+            <th>TransactionId</th><th>Account number</th><th>Txn Type</th>
+            <th>Txn Amount</th><th>Txn desc</th>
+            <th>Txn Date</th><th>Balance</th>
+            <tr *ngFor="let stat of statArray">
+                <td>{{stat.transid}}</td>
+                <td>{{stat.accno}}</td>
+                <td>{{stat.trtype}}</td>
+                <td>{{stat.tramt}}</td>
+                <td>{{stat.tdesc}}</td>   
+                <td>{{stat.trdate}}</td>
+                <td>{{stat.currbalance}}</td>
+            </tr>
+        </table>
+    </tr>
+
+</table>
